@@ -1,0 +1,24 @@
+# description "logstash upstart"
+# author      "kvz - http://kevin.vanzonneveld.net"
+# maintainer  "Steve Elliott - steve.elliot@laterooms.com"
+
+# used to be: start on startup
+# until we found some mounts weren't ready yet while booting:
+start on started networking
+stop on shutdown
+
+# Automatically Respawn:
+respawn
+respawn limit 20 5
+
+script
+    # Not sure why $HOME is needed, but we found that it is:
+    # it seems to be working without it
+    #export HOME="/home/"
+
+    cd <%= @deploy_dir %>
+
+    echo $$ > /var/run/<%= @app_name %>.pid
+
+    exec sudo -u <%= @user %> <%= @startup_script %> >> <%= @log_location %> 2>&1
+end script
