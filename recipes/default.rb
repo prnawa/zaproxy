@@ -8,4 +8,5 @@
 #
 
 include_recipe "zaproxy::zaproxy_from_#{node['zaproxy']['install_method']}"
+include_recipe "zaproxy::zaproxy_config"
 include_recipe "zaproxy::zaproxy_service"

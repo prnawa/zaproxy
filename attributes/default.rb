@@ -2,3 +2,5 @@ default['zaproxy']['binary']['url'] = 'http://softlayer-sng.dl.sourceforge.net/p
 default['zaproxy']['binary']['checksum'] = 'D4382891DA3F1AD5B6122C581A44C9ED'
 default['zaproxy']['install_method'] = "binary"
 default['zaproxy']['install_dir'] = "/opt/zaproxy"
+default['zaproxy']['host'] = "localhost"
+default['zaproxy']['port'] = "8282"
