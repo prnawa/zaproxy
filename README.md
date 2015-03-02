@@ -1,21 +1,18 @@
 zaproxy Cookbook
 ================
-TODO: Enter the cookbook description here.
+Cookbook for installing the OWASP Zed Attack Proxy (ZAP)
 
-e.g.
-This cookbook makes your favorite breakfast sandwich.
 
 Requirements
 ------------
-TODO: List your cookbook requirements. Be sure to include any requirements this cookbook has on platforms, libraries, other cookbooks, packages, operating systems, etc.
+Should work on common Unix/Linux systems with typical userland utilities like tar, gzip, etc.
 
-e.g.
 #### packages
-- `toaster` - zaproxy needs toaster to brown your bagel.
+- `ark` - zaproxy needs ark to install zaproxy from binary distribution for linux systems.
 
 Attributes
 ----------
-TODO: List your cookbook attributes here.
+Customize the attributes to suit site specific conventions and defaults.
 
 e.g.
 #### zaproxy::default
@@ -27,19 +24,35 @@ e.g.
     <th>Default</th>
   </tr>
   <tr>
-    <td><tt>['zaproxy']['bacon']</tt></td>
-    <td>Boolean</td>
-    <td>whether to include bacon</td>
-    <td><tt>true</tt></td>
+    <td><tt>['zaproxy']['binary']['url']</tt></td>
+    <td>String</td>
+    <td>zaproxy binary distribution url</td>
+    <td><tt>http://softlayer-sng.dl.sourceforge.net/project/zaproxy/2.3.1/ZAP_2.3.1_Linux.tar.gz</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['zaproxy']['install_dir']</tt></td>
+    <td>String</td>
+    <td>zaproxy installation directory</td>
+    <td><tt>/opt/zaproxy-2.3.1</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['zaproxy']['host']</tt></td>
+    <td>String</td>
+    <td>zaproxy host</td>
+    <td><tt>localhost</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['zaproxy']['port']</tt></td>
+    <td>String</td>
+    <td>Zaproxy port</td>
+    <td><tt>8282</tt></td>
   </tr>
 </table>
 
 Usage
 -----
 #### zaproxy::default
-TODO: Write usage instructions for each cookbook.
 
-e.g.
 Just include `zaproxy` in your node's `run_list`:
 
 ```json
@@ -53,9 +66,7 @@ Just include `zaproxy` in your node's `run_list`:
 
 Contributing
 ------------
-TODO: (optional) If this is a public cookbook, detail the process for contributing. If this is a private cookbook, remove this section.
 
-e.g.
 1. Fork the repository on Github
 2. Create a named feature branch (like `add_component_x`)
 3. Write your change
@@ -65,4 +76,16 @@ e.g.
 
 License and Authors
 -------------------
-Authors: TODO: List authors
+Author: Ruwan Nawarathne (<prnawa@gmail.com>) 
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
